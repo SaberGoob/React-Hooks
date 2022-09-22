@@ -1,5 +1,8 @@
-import React from 'react'
-import { Card } from 'react-bootstrap'
+import React from 'react';
+import { Card } from 'react-bootstrap';
+import { Link } from "react-router-dom";
+
+
 
 import './MovieCard.css'
 
@@ -10,9 +13,12 @@ const MovieCard = ({ movie }) => {
         <Card.Img variant="top" src={movie.img} className="movieImg" />
         <Card.Body className="cardText">
           <Card.Title className="movieTitle">{movie.title}</Card.Title>
-          <discriptio className="discription">{movie.discription}</discriptio>
+          <discription className="discription">{movie.discription}</discription>
         </Card.Body>
       </Card>
+      <Link to={`/desc/${movie.title}`} state={{ movie }}>
+        See more...
+      </Link>
     </div>
   )
 }
